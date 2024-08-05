@@ -1,40 +1,37 @@
 package com.example.littlelemoncompose
 
 import android.os.Bundle
-import android.text.style.BackgroundColorSpan
-import android.widget.RadioButton
+import android.provider.CalendarContract.Colors
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.littlelemoncompose.ui.theme.LittleLemonComposeTheme
-import kotlinx.coroutines.selects.select
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -125,22 +122,48 @@ fun ShowPicture(){
 fun GreetingPreview() {
 
     LittleLemonComposeTheme {
+        Column(Modifier.fillMaxSize()
+            , verticalArrangement = Arrangement.Center
+            , horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.little_lemon_front)
+                , contentDescription = "Little Lemon Default Image"
+                ,Modifier.size(200.dp)
+            )
+            Text(
+                text = stringResource(id = R.string.initMessage1)
+                , fontSize = 20.sp
+            )
+            Text(
+                text = stringResource(id = R.string.initMessage2)
+                , fontSize = 20.sp
+            )
 
-        Column {
+           TextField(
+               value = stringResource(id = R.string.user)
+               , onValueChange = {}
+               , Modifier.padding(top = 100.dp)
+               , shape = RoundedCornerShape(10.dp)
+           )
 
-            Text(text= stringResource(id = R.string.little_lemon), fontSize = 32.sp, color = colorResource(
-                id = R.color.yellow))
-            Text(text = stringResource(id = R.string.chicago), fontSize = 28.sp, color = colorResource(
-                id = R.color.yellow
-            ))
+            TextField(
+                value = stringResource(id = R.string.password)
+                , onValueChange = {}
+                , Modifier.padding(all = 30.dp)
+                , shape = RoundedCornerShape(10.dp)
+            )
+
             Button(
                 onClick = { /*TODO*/ }
-                ,border = BorderStroke(2.dp, Color.Red)
-
+                , Modifier.padding(top = 20.dp)
+                , colors = ButtonDefaults
+                    .buttonColors(colorResource(id = R.color.yellow), Color.Black)
             ) {
-                Text(text = stringResource(id = R.string.order), fontSize = 28.sp)
+                Text(text = stringResource(id = R.string.access_button))
             }
         }
+    }
     /*
         //Surface(modifier = Modifier, color = MaterialTheme.colorScheme.background) {
             LittleLemonComposeTheme {
@@ -159,7 +182,6 @@ fun GreetingPreview() {
 
             }
 */
-    }
-
-
 }
+
+

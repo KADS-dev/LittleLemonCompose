@@ -3,4 +3,9 @@
     <string name="little_lemon">Little Lemon</string>
     <string name="chicago">Chicago</string>
     <string name="order">Order</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="initMessage1">¡Bienvenido a </string>
+    <string name="initMessage2">Little Lemon!</string>
+    <string name="access_button">Acceder</string>
 </resources>
