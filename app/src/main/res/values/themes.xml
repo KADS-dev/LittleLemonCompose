@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="custom1">
+
+        <item name="android:colorBackground">@color/background_purple</item>
+    </style>
+
+    <style name="Theme.LittleLemonCompose" parent="android:Theme.Material.Light.NoActionBar">
+
+    </style>
+</resources>
